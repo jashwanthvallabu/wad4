@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Div Layout with Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&family=Poppins:wght@600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Container for entire page */
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Row styles */
+        .row {
+            display: flex;
+            border-bottom: 2px solid #ccc;
+        }
+
+        /* First row: logo + header */
+        .row1 {
+            height: 120px;
+            background: #f0f4f8;
+            align-items: center;
+        }
+
+        .logo {
+            flex: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            color: #005f73;
+        }
+
+        .logo img {
+            width: 80px;
+            height: 80px;
+            margin-left: 10px;
+            border-radius: 12px;
+        }
+
+        .header {
+            flex: 7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 900;
+            color: #fb8500;
+            font-size: 2.5rem;
+            background: #004e64;
+        }
+
+        /* Second row: navigation */
+        .row2 {
+            height: 80px;
+            background: #caf0f8;
+            display: flex;
+        }
+
+        .nav-item {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-item a {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: #00647a;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: 0.3s;
+        }
+
+        .nav-item a:hover {
+            color: #0077b6;
+            text-decoration: underline;
+        }
+
+        /* Third row: services + content */
+        .row3 {
+            flex: 1;
+            display: flex;
+        }
+
+        .services {
+            flex: 3;
+            background: #d0f4de;
+            padding: 20px;
+            border-right: 2px solid #ccc;
+        }
+
+        .services h3 {
+            text-align: center;
+            color: #002315;
+        }
+
+        .services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services li {
+            margin: 15px 0;
+        }
+
+        .services a {
+            text-decoration: none;
+            color: #00453c;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .services a:hover {
+            color: #00a86b;
+            text-decoration: underline;
+        }
+
+        .content {
+            flex: 7;
+            padding: 20px;
+            background: #fefefe;
+        }
+
+        .content h2 {
+            color: #005640;
+        }
+
+        .content p {
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- First Row: Logo + Header -->
+        <div class="row row1">
+            <div class="logo">
+                <h2>LOGO</h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React Logo">
+            </div>
+            <div class="header">My Awesome Website</div>
+        </div>
+
+        <!-- Second Row: Navigation -->
+        <div class="row row2">
+            <div class="nav-item"><a href="#" onclick="updateContent('Home', 'Welcome to Home Page')">Home</a></div>
+            <div class="nav-item"><a href="#" onclick="updateContent('Login', 'Enter login details')">Login</a></div>
+            <div class="nav-item"><a href="#" onclick="updateContent('Registration', 'Fill registration form')">Registration</a></div>
+            <div class="nav-item"><a href="#" onclick="updateContent('Catalogue', 'Product list here')">Catalogue</a></div>
+            <div class="nav-item"><a href="#" onclick="updateContent('Cart', 'Your cart items')">Cart</a></div>
+            <div class="nav-item"><a href="#" onclick="updateContent('Contact Us', 'Email: support@example.com')">Contact Us</a></div>
+        </div>
+
+        <!-- Third Row: Services + Content -->
+        <div class="row row3">
+            <div class="services">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#" onclick="updateContent('Web Design', 'Web design service details')">Web Design</a></li>
+                    <li><a href="#" onclick="updateContent('Hosting', 'Hosting service details')">Hosting</a></li>
+                    <li><a href="#" onclick="updateContent('Support', 'Support service details')">Support</a></li>
+                </ul>
+            </div>
+            <div class="content" id="content">
+                <h2>Welcome</h2>
+                <p>Click any link to see content here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateContent(title, text) {
+            const content = document.getElementById('content');
+            content.innerHTML = `<h2>${title}</h2><p>${text}</p>`;
+        }
+    </script>
+</body>
+</html>
